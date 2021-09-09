@@ -1,0 +1,148 @@
+
+<!-- Modal Login -->
+<div class="modal fade" id="login" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Login Aplikasi</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form action="/login" method="POST">
+      <div class="modal-body">
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input autocomplete="off" type="email" class="form-control" id="email" name="email" placeholder="Masukkan Email" required="" value="aris@gmail.com">
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input autocomplete="off" type="password" class="form-control" id="password" name="password" placeholder="Masukkan Password" required="" value="aris">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn" style="background-color: #FF5500;">
+          <i class='bx bx-send text-white' ></i>
+        </button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Register -->
+<div class="modal fade" id="register" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Daftar Sekarang Juga</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form action="/register" method="POST">
+      <div class="modal-body">
+        <div class="mb-3">
+          <label for="username" class="form-label">Username</label>
+          <input autocomplete="off" type="text" class="form-control" id="username" name="username" placeholder="Masukkan Username" required="">
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input autocomplete="off" type="email" class="form-control" id="email" name="email" placeholder="Masukkan Email" required="">
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input autocomplete="off" type="password" class="form-control" id="password" name="password" placeholder="Masukkan Password" required="">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn" style="background-color: #FF5500;">
+          <i class='bx bx-send text-white' ></i>
+        </button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Add Collection -->
+<div class="modal fade" id="addCollection" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+          <i class='bx bx-plus-medical' ></i> Tambah Tugas
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form action="/addCollection" method="POST">
+      <div class="modal-body">
+        <div class="mb-3">
+          <label for="collection" class="form-label">Tugas</label>
+          <input autocomplete="off" type="text" class="form-control" id="collection" name="collection" placeholder="Masukkan Nama Tugas" required="">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn" style="background-color: #FF5500;">
+          <i class='bx bx-send text-white' ></i>
+        </button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Update Collection -->
+{{#each data}}
+<div class="modal fade" id="updateCollection{{this.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+          <i class='bx bx-plus-medical' ></i> Perbarui Tugas
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <form action="/updateCollection/{{this.id}}" method="POST">
+      <div class="modal-body">
+        <div class="mb-3">
+          <label for="collection" class="form-label">Tugas</label>
+          <input autocomplete="off" type="text" class="form-control" id="collection" name="collection" placeholder="Masukkan Nama Tugas" required="" value="{{this.name}}">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-success">
+          <i class='bx bx-send text-white' ></i>
+        </button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+{{/each}}
+
+<!-- Modal Delete Collection -->
+{{#each data}}
+<div class="modal fade" id="deleteCollection{{this.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body d-flex justify-content-center" align="center">
+        <button type="button" class="btn btn-dark m-2" data-bs-dismiss="modal" aria-label="Close">Batal</button>
+        <form action="/deleteCollection/{{this.id}}">
+        <button type="submit" class="btn btn-danger m-2" >Hapus</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{{/each}}
+    
+{{!-- Notifikasi --}}
+{{#if message}}
+  <script>
+    Swal.fire({
+      icon: '{{message.icon}}',
+      title: '{{message.title}}'
+    });
+  </script>
+{{/if}}              
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cari Angka</title>
+    <link rel="icon" href="icon.svg">
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <!-- Css External -->
+    <link rel="stylesheet" href="2.css">
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Sweetalert -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <div class="card-left">
+            <section>
+                <h1>Cari Angka</h1>
+                <div class="data-array">
+                    <input type="number" placeholder="Tambah Bilangan" id="add_value">
+                    <button onclick="addValue()">
+                        <i class='bx bx-plus-medical'></i>
+                    </button>
+                </div>
+                <table>
+                    <tr id="set_values">
+                    </tr>
+                </table>
+                <input type="number" id="min" placeholder="Masukkan Nilai Min">
+                <br>
+                <input type="number" id="max" placeholder="Masukkan Nilai Mak">
+                <br>
+                <button onclick="sendData()">
+                    <i class='bx bx-search-alt'></i>
+                </button>
+            </section>
+        </div>
+        <div class="card-right">
+            <span id="set_status">
+            </span>
+            <div id="set_result">
+                <span>. . . . .</span>
+            </div>
+        </div>
+    </div>
+    
+<script src="2.js"></script>
+</body>
+</html>

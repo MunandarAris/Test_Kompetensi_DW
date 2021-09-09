@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perhitungan Gaji</title>
+    <link rel="icon" href="icon.svg">
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <!-- Css External -->
+    <link rel="stylesheet" href="1.css">
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Sweetalert -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <div class="card-left">
+            <section>
+                <h1>Laporan Gaji PT Maju Jaya</h1>
+                <input type="text" id="name" placeholder="Masukkan Nama Pegawai" autocomplete="off">
+                <br>
+                <select id="group">
+                    <option value="" selected>-- Pilih Golongan --</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">C</option>
+                    <option value="D">D</option>
+                </select>
+                <br>
+                <input type="number" id="time" placeholder="Masukkan Jam Bekerja">
+                <br>
+                <button onclick="sendData()">
+                    <i class='bx bxs-send'></i>
+                </button>
+            </section>
+        </div>
+        <div class="card-right" id="set_result">
+            <section>
+                <img src="icon.svg" alt="">
+            </section>
+        </div>
+    </div>
+    
+<script src="1.js"></script>
+</body>
+</html>

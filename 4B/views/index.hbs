@@ -1,0 +1,92 @@
+{{>header}}
+
+
+<div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-transparant">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <h3>
+                    <span style="color: #FF5500;"><i class='bx bx-task'></i></span> Catatan Tugas
+                </h3>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                {{#if statusLogin}}
+                <li class="nav-item dropdown">
+                    <a class="nav-link active dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Selamat Datang <span style="color: #FF5500;">{{username}}</span>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="/logout">Logout <i class='bx bx-log-in'></i></a></li>
+                    </ul>
+                </li>
+                {{else}}
+                <li class="nav-item">
+                    <button class="btn text-white btn-login" aria-current="page" data-bs-toggle="modal" data-bs-target="#login">Login</button>
+                    <button class="btn text-white btn-register" aria-current="page" data-bs-toggle="modal" data-bs-target="#register">Daftar</button>
+                </li>
+                {{/if}}
+            </ul>
+            </div>
+        </div>
+    </nav>
+
+    {{#if statusLogin}}
+    <div class="container text-center mt-5">
+        <h2 class="text-white">
+            <span style="color: #FF5500;"><i class='bx bx-list-ul' ></i></span> Daftar Tugas
+        </h2>
+    </div>
+    <div class="container mt-5" >
+        <div class="row d-flex justify-content-center">
+            <div class="card text-white collection mb-3 col-md-3" data-bs-toggle="modal" data-bs-target="#addCollection">
+                <div class="card-body text-center">
+                    <h2>
+                        <i class='bx bx-plus-medical' ></i>
+                    </h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="row d-flex justify-content-center pb-5">
+            {{#each data}}
+            <div class="card text-white data mt-5 mb-3 m-2 col-md-3">
+                <div class="card-body text-center">
+                    <h3>
+                        {{this.name}}
+                    </h3>
+                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteCollection{{this.id}}">
+                        <i class='bx bxs-trash'></i>
+                    </button>
+                    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#updateCollection{{this.id}}">
+                        <i class='bx bx-pencil' ></i>
+                    </button>
+                    <a href="/task/{{this.id}}" class="btn btn-primary">
+                        <i class='bx bxs-show'></i>
+                    </a>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        
+        {{else}}
+        <br><br>
+        <div class="text-center pt-2 pb-5">
+            <img src="/public/icon2.svg" class="mb-5" style="width: 30%;">
+            <h1 class="text-white mb-3">Silahkan Login Terlebih Dahulu</h1>
+            <button class="btn text-white btn-login mt-3" aria-current="page" data-bs-toggle="modal" data-bs-target="#login">Login</button>
+        </div>
+        {{/if}}
+    </div>
+</div>
+
+
+{{>footer}}
+
+
+
+
+    
